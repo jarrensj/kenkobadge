@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React from "react"
 import styled from "styled-components"
 
@@ -7,36 +8,36 @@ const Footer = () => (
   <FooterWrapper id="footer">
     <FooterColumnContainer>
       <FooterColumn>
-        <span>Features</span>
-        <ul>
-          <li>Automation</li>
-          <li>Rewards</li>
-        </ul>
-      </FooterColumn>
-      <FooterColumn>
         <span>Resources</span>
         <ul>
-          <li>Compare</li>
-          <li>Blog</li>
+          <li><Link style={{ textDecoration: 'none', color: "black" }} to="/standards">Our Standards</Link></li>
+          <li><Link style={{ textDecoration: 'none', color: "black" }} to="/disclaimer">Full Disclaimer</Link></li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Company</span>
         <ul>
-          <li>About Us</li>
-          <li>Careers</li>
+          <li><Link style={{ textDecoration: 'none', color: "black" }} to="/about">About Us</Link></li>
+          <li><a style={{ textDecoration: 'none', color: "black" }} href="https://linkedin.com/in/jarrensanjose">LinkedIn</a></li>
         </ul>
       </FooterColumn>
       <FooterColumn>
         <span>Social</span>
         <ul>
-          <li>LinkedIn</li>
-          <li>Instagram</li>
+          <li><a style={{ textDecoration: 'none', color: "black" }} href="https://instagram.com/jarrensj">Instagram</a></li>
+          <li><a style={{ textDecoration: 'none', color: "black" }} href="https://twitter.com/jarrensj">Twitter</a></li>
+        </ul>
+      </FooterColumn>
+      <FooterColumn>
+        <span>Contact</span>
+        <ul>
+          <li><a style={{ textDecoration: 'none', color: "black" }} href="mailto:sanjose.jarren@gmail.com">Email</a></li>
+          <li><Link style={{ textDecoration: 'none', color: "black" }} to="/join-us">Join Us</Link></li>
         </ul>
       </FooterColumn>
     </FooterColumnContainer>
     <BrandContainer>
-      <Logo>Finance</Logo>
+      <Logo><Link style={{ textDecoration: 'none', color: "black" }} to="/">kenko</Link></Logo>
     </BrandContainer>
   </FooterWrapper>
 )

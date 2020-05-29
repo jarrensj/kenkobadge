@@ -1,50 +1,53 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import { Section, Container } from "../global"
 
 const Features = () => (
   <Section id="features">
     <StyledContainer>
-      <Subtitle>Features</Subtitle>
-      <SectionTitle>Smart money management</SectionTitle>
+      <Subtitle>What we care about</Subtitle>
+      <SectionTitle>Our Standards</SectionTitle>
       <FeaturesGrid>
         <FeatureItem>
-          <FeatureTitle>Notifications</FeatureTitle>
+          <FeatureTitle>No Thermal Paper</FeatureTitle>
           <FeatureText>
-            Receive budget and spending alerts based on your favorite triggers.
+            BPA can be absorbed into your body just by handling thermal paper. The common culprit is a receipt.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Security</FeatureTitle>
+          <FeatureTitle>Acceptable Containers</FeatureTitle>
           <FeatureText>
-            Your data is always safe with us as we use the latest security
-            protocols.
+            We don't want chemicals leaking from the containers' material onto your food or into your drinks.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Automation</FeatureTitle>
+          <FeatureTitle>Correct Gloves</FeatureTitle>
           <FeatureText>
-            Create smart automated workflows and triggers for your money.
+            We don't want the gloves' material to be leaking into employees' bodies or the customers' food items.
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Aggregation</FeatureTitle>
+          <FeatureTitle>Appropriate Cookware</FeatureTitle>
           <FeatureText>
-            Easily link up to 5 banks to your finance account.
+            We want to ensure proper utensils and equipment are used starting from the preparation process. 
           </FeatureText>
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Payments</FeatureTitle>
-          <FeatureText>Send money to friends and family with ease.</FeatureText>
+          <FeatureTitle>Suitable Cutlery</FeatureTitle>
+          <FeatureText>
+            Ensuring proper utensils are handed to the customer for the consumption of their goods.
+          </FeatureText>        
         </FeatureItem>
         <FeatureItem>
-          <FeatureTitle>Rewards</FeatureTitle>
+          <FeatureTitle>Proper Ventilation</FeatureTitle>
           <FeatureText>
-            High interest and rewards for hitting your goals.
+            Proper ventilation is not just important for the chefs' health. VoCs can stick to food.
           </FeatureText>
         </FeatureItem>
       </FeaturesGrid>
+      <Subtitle><Link to="/standards" style={{ textDecoration: 'none' }} >See full details of our standards</Link></Subtitle>
     </StyledContainer>
   </Section>
 )

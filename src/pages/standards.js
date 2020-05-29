@@ -1,56 +1,106 @@
+
 import React from "react"
+
+import Layout from "../components/common/layout/layout"
+import SEO from "../components/common/layout/seo"
+import Navigation from "../components/common/navigation/page-navbar"
+
+import Footer from "../components/sections/footer"
+
+
 import styled from "styled-components"
-import { graphql, useStaticQuery, Link } from "gatsby"
+
+import { Section, Container } from "../components/global"
+
 import Img from "gatsby-image"
 
-import { Container } from "../global"
 
-const Header = () => {
+import { graphql, useStaticQuery, Link } from "gatsby"
+
+
+const Standards = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "logo" }) {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
         childImageSharp {
-          fluid(maxWidth: 1500) {
+          fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
     }
   `)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
-
   return (
+  <Layout>
+    <SEO title="Home" />
+    <Navigation />
     <HeaderWrapper id="top">
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>kenko badge</Subtitle>
             <h1>
-              Let's care
-              <br />
-              for one another
+              Our Standards
             </h1>
             <h2>
-              We're setting the standard for businesses to better protect their employees and their customers.
+              Our goal is to set the foundational standard for businesses to follow to protect their employees, their customers, and the Earth we share.
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <Link to="/about" style={{ textDecoration: 'none', color: "white" }}><HeaderButton>Learn more</HeaderButton></Link>
-            </HeaderForm>
+            <ul>
+              <li>
+                <h2>No Thermal Paper</h2>
+                <p>Thermal paper commonly contains BPA, which can be absorbed into your body through contact with skin.</p>
+              </li>
+              <li>
+                <h2>
+                  Acceptable Containers
+                </h2>
+                <p>
+                  We don't want chemicals leaking from the containers' material onto your food or into your beverages. This also applies to take out items.
+                </p>
+              </li>
+              <li>
+                <h2>Correct Gloves</h2> 
+                <p>
+                  If gloves are used, we don't want the gloves' material to be leaking into employees' bodies or the customers' food items.
+                </p>
+              </li>
+              <li>
+                <h2>Suitable Cutlery</h2>
+                <p>
+                  Ensuring proper utensils are handed for the consumption of goods. 
+                </p>
+              </li>
+              <li>
+                <h2>Proper Equipment</h2>
+                <p>
+                  Ensuring proper equipment such as cookware and utensils are used during the food preparation process. 
+                </p>
+              </li>
+              <li>
+                <h2>Proper Ventilation</h2>
+                <p>
+                  Proper ventilation is not just important for the chefs' health. VoCs can stick to food. 
+                </p>
+              </li>
+            </ul>
+            <p>
+              After passing these standards, a certification is provided so they can publicly display clean and healthy preparation values to your customers.
+            </p>
+            <small>Please note that a business having passed the evaluation shows that their business complied to the standards on the day of the evalation. We are not responsible or in control if they make changes afterwards and are no longer in compliance. We are not responsible for any damages if the business does so choose to break compliance and still display the badge. We do recommend that you do report this to us and we will take action. We also put an expiration of 1 year on the certificate though to help deter this.</small>
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
+          <StyledImage fluid={data.file.childImageSharp.fluid} />
             <br />
           </ImageWrapper>
         </Flex>
       </Container>
     </HeaderWrapper>
+    <Footer />
+  </Layout>
   )
 }
 
-export default Header
+export default Standards
+
 
 const HeaderWrapper = styled.header`
   background-color: #f8f8f8;
@@ -191,12 +241,12 @@ const ImageWrapper = styled.div`
 `
 
 const StyledImage = styled(Img)`
-  width: 750px;
+  width: 500px;
   @media (max-width: ${props => props.theme.screen.md}) {
-    width: 600px;
+    width: 400px;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 450px;
+    width: 300px;
     display: none;
   }
 `

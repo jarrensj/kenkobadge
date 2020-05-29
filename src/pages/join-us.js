@@ -1,56 +1,70 @@
+
 import React from "react"
+
+import Layout from "../components/common/layout/layout"
+import SEO from "../components/common/layout/seo"
+import Navigation from "../components/common/navigation/page-navbar"
+
+import Footer from "../components/sections/footer"
+
+
 import styled from "styled-components"
-import { graphql, useStaticQuery, Link } from "gatsby"
+
+import { Section, Container } from "../components/global"
+
 import Img from "gatsby-image"
 
-import { Container } from "../global"
 
-const Header = () => {
+import { graphql, useStaticQuery, Link } from "gatsby"
+
+
+const Careers = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(sourceInstanceName: { eq: "product" }, name: { eq: "logo" }) {
+      file(sourceInstanceName: { eq: "product" }, name: { eq: "green-skew" }) {
         childImageSharp {
-          fluid(maxWidth: 1500) {
+          fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
     }
   `)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
-
   return (
+  <Layout>
+    <SEO title="Home" />
+    <Navigation />
     <HeaderWrapper id="top">
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>kenko badge</Subtitle>
             <h1>
-              Let's care
-              <br />
-              for one another
+              Join Us
             </h1>
             <h2>
-              We're setting the standard for businesses to better protect their employees and their customers.
+              We're always looking for people interested in helping people and the public health.
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <Link to="/about" style={{ textDecoration: 'none', color: "white" }}><HeaderButton>Learn more</HeaderButton></Link>
-            </HeaderForm>
+            
+            <p>Below is a list of our current needs but if you have a special talent or just want to help, do not hestitate to <a href="mailto:sanjose.jarren@gmail.com?subject=General Interest" style={{textDecoration:"none"}}>contact us</a>.</p>
+            
+            <h2><a style={{ textDecoration: 'none' }} href="mailto:sanjose.jarren@gmail.com?subject=Business Outreach">Business Outreach</a></h2>
+            <h2><a style={{ textDecoration: 'none' }} href="mailto:sanjose.jarren@gmail.com?subject=Front End Software Engineer">Front End Software Engineer</a></h2>
+
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
+          <StyledImage fluid={data.file.childImageSharp.fluid} />
             <br />
           </ImageWrapper>
         </Flex>
       </Container>
     </HeaderWrapper>
+    <Footer />
+  </Layout>
   )
 }
 
-export default Header
+export default Careers
+
 
 const HeaderWrapper = styled.header`
   background-color: #f8f8f8;
@@ -191,12 +205,12 @@ const ImageWrapper = styled.div`
 `
 
 const StyledImage = styled(Img)`
-  width: 750px;
+  width: 500px;
   @media (max-width: ${props => props.theme.screen.md}) {
-    width: 600px;
+    width: 400px;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 450px;
+    width: 300px;
     display: none;
   }
 `

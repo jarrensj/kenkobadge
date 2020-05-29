@@ -1,56 +1,80 @@
+
 import React from "react"
+
+import Layout from "../components/common/layout/layout"
+import SEO from "../components/common/layout/seo"
+import Navigation from "../components/common/navigation/page-navbar"
+
+import Footer from "../components/sections/footer"
+
+
 import styled from "styled-components"
-import { graphql, useStaticQuery, Link } from "gatsby"
+
+import { Section, Container } from "../components/global"
+
 import Img from "gatsby-image"
 
-import { Container } from "../global"
 
-const Header = () => {
+import { graphql, useStaticQuery, Link } from "gatsby"
+
+
+const About = () => {
   const data = useStaticQuery(graphql`
     query {
       file(sourceInstanceName: { eq: "product" }, name: { eq: "logo" }) {
         childImageSharp {
-          fluid(maxWidth: 1500) {
+          fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
     }
   `)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-  }
-
   return (
+  <Layout>
+    <SEO title="Home" />
+    <Navigation />
     <HeaderWrapper id="top">
       <Container>
         <Flex>
           <HeaderTextGroup>
-            <Subtitle>kenko badge</Subtitle>
             <h1>
-              Let's care
-              <br />
-              for one another
+              About us
             </h1>
             <h2>
-              We're setting the standard for businesses to better protect their employees and their customers.
+              Did you know just by handling thermal paper that BPA can be absorbed into your body? 
             </h2>
-            <HeaderForm onSubmit={handleSubmit}>
-              <Link to="/about" style={{ textDecoration: 'none', color: "white" }}><HeaderButton>Learn more</HeaderButton></Link>
-            </HeaderForm>
+            <h2>
+              Current research shows that BPA can affect endocrine receptors and this can affect nursing mothers and children the most. 
+            </h2>
+            <p>
+              We see that there are many things in society right now that are simply overlooked and people are not aware of effects these every day items and habits can cause.
+            </p>
+            <p>
+              Our goal is to make it easier for people to be aware of what they are consuming. We want to protect everyone from the employee down to the customer from any adverse health effects. Our goal is for everyone to be able to live a happy and healthy life.
+            </p>
+            <p>
+              We want to create this foundational standard, a starting point for businesses to help better protect their employees and customers. 
+            </p>
+            <p>As we create awareness for safety standards in restaurants, we encourage people to do more research to protect themselves and their health. 
+            </p>
+            <small>
+              Reminder: We do not make any claims regarding health. <Link to="/disclaimer">See our full disclaimer</Link>. We encourage everyone to do their own research.
+            </small>
           </HeaderTextGroup>
           <ImageWrapper>
-            <StyledImage fluid={data.file.childImageSharp.fluid} />
-            <br />
+          <StyledImage fluid={data.file.childImageSharp.fluid} />
           </ImageWrapper>
         </Flex>
       </Container>
     </HeaderWrapper>
+    <Footer />
+  </Layout>
   )
 }
 
-export default Header
+export default About
+
 
 const HeaderWrapper = styled.header`
   background-color: #f8f8f8;
@@ -191,12 +215,12 @@ const ImageWrapper = styled.div`
 `
 
 const StyledImage = styled(Img)`
-  width: 750px;
+  width: 500px;
   @media (max-width: ${props => props.theme.screen.md}) {
-    width: 600px;
+    width: 400px;
   }
   @media (max-width: ${props => props.theme.screen.sm}) {
-    width: 450px;
+    width: 300px;
     display: none;
   }
 `

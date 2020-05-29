@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import AnchorLink from "react-anchor-link-smooth-scroll"
 import Scrollspy from "react-scrollspy"
 import { Menu, X } from "react-feather"
+import { graphql, useStaticQuery, Link } from "gatsby"
 
 import { Container } from "../../global"
 import {
@@ -15,9 +16,9 @@ import {
   ActionsContainer,
 } from "./style"
 
-const NAV_ITEMS = []; //["Our Standards", "About Us", "FAQ", "Get Started"]
+const NAV_ITEMS = []; // ["Our Standards", "About Us", "FAQ", "Get Started"]
 
-export default class Navigation extends Component {
+export default class PageNavigation extends Component {
   state = {
     mobileMenuOpen: false,
     hasScrolled: false,
@@ -75,11 +76,9 @@ export default class Navigation extends Component {
       <Nav {...this.props} scrolled={this.state.hasScrolled}>
         <StyledContainer>
           <Brand>
-            <Scrollspy offset={-64} item={["top"]} currentClassName="active">
-              <AnchorLink href="#top" onClick={this.closeMobileMenu}>
+            <Link style={{ textDecoration: 'none', color: "black"  }} to="/">
                 kenko
-              </AnchorLink>
-            </Scrollspy>
+            </Link>
           </Brand>
           <Mobile>
             <button
